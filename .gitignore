@@ -1,0 +1,9 @@
+rootfs_script/rootfs
+rootfs_script/cache
+busybox-1.35.0
+etc/wpa_supplicant.conf
+qemu-arm-static
+mkfs.vfat
+mkswap
+initramfs/files/dev
+mytest.img

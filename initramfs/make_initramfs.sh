@@ -14,7 +14,7 @@ if [ ! "${USER}" = "root" ]; then
 fi
 
 export ARCH=arm
-export CROSS_COMPILE=arm-linux-gnueabihf-
+export CROSS_COMPILE=arm-none-linux-gnueabihf-
 export CONFIG_EXTRA_LDLIBS="pthread dl tirpc audit pam"
 
 wget http://busybox.net/downloads/$BUSYBOX_SRC_VERSION.tar.bz2

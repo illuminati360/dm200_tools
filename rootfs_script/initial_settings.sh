@@ -1,4 +1,5 @@
 #!/bin/sh
+export PATH=$PATH:/usr/sbin/
 
 # japanese settings
 chmod u+s /usr/bin/fbterm
@@ -50,7 +51,7 @@ fi
 
 
 # make mount point
-mkdir /mnt/sd
+mkdir -p /mnt/sd
 
 # write fstab
 echo "proc            /proc           proc    nodev,nosuid,noexec                         0   0" > /etc/fstab

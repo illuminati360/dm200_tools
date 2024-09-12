@@ -12,12 +12,14 @@
 #
 
 VERSION=bullseye
-ENABLE_X=1
+#ENABLE_X=1
+ENABLE_X=0
 
 #VARIANT=buildd
 VARIANT=minbase
 #SERVER=http://ftp.debian.org/debian/
-SERVER=http://ftp.jp.debian.org/debian/
+#SERVER=http://ftp.jp.debian.org/debian/
+SERVER=https://mirror.lzu.edu.cn/debian/
 
 ROOTFS=rootfs
 CACHE_DIR=`pwd`/cache/$VERSION
@@ -119,21 +121,16 @@ fi
 mkdir -p $ROOTFS/opt/etc/firmware
 
 # for DM200
-wget https://github.com/armbian/firmware/raw/master/ap6210/bcm20710a1.hcd -O $ROOTFS/opt/etc/firmware/bcm20710a1.hcd
-wget https://raw.githubusercontent.com/armbian/firmware/master/ap6210/nvram.txt -O $ROOTFS/opt/etc/firmware/nvram_AP6210.txt
-wget https://github.com/armbian/firmware/raw/master/rkwifi/fw_RK901a2.bin -O $ROOTFS/opt/etc/firmware/fw_RK901a2.bin
-wget https://github.com/armbian/firmware/raw/master/rkwifi/fw_RK901a2_apsta.bin -O $ROOTFS/opt/etc/firmware/fw_RK901a2_apsta.bin
-wget https://github.com/armbian/firmware/raw/master/rkwifi/fw_RK901a2_p2p.bin -O $ROOTFS/opt/etc/firmware/fw_RK901a2_p2p.bin
+wget -nc https://github.com/armbian/firmware/raw/master/ap6210/bcm20710a1.hcd -O $ROOTFS/opt/etc/firmware/bcm20710a1.hcd
+wget -nc https://raw.githubusercontent.com/armbian/firmware/master/ap6210/nvram.txt -O $ROOTFS/opt/etc/firmware/nvram_AP6210.txt
+wget -nc https://github.com/armbian/firmware/raw/master/rkwifi/fw_RK901a2.bin -O $ROOTFS/opt/etc/firmware/fw_RK901a2.bin
+wget -nc https://github.com/armbian/firmware/raw/master/rkwifi/fw_RK901a2_apsta.bin -O $ROOTFS/opt/etc/firmware/fw_RK901a2_apsta.bin
+wget -nc https://github.com/armbian/firmware/raw/master/rkwifi/fw_RK901a2_p2p.bin -O $ROOTFS/opt/etc/firmware/fw_RK901a2_p2p.bin
 
 # for DM250
-wget https://github.com/armbian/firmware/raw/master/ap6212/bcm43438a1.hcd -O $ROOTFS/opt/etc/firmware/BCM43438A1.hcd
-wget https://github.com/armbian/firmware/raw/master/ap6212/fw_bcm43438a1.bin -O $ROOTFS/opt/etc/firmware/fw_bcm43438a1.bin
-wget https://github.com/armbian/firmware/raw/master/ap6212/fw_bcm43438a1_mfg.bin -O $ROOTFS/opt/etc/firmware/fw_bcm43438a1_mfg.bin
-wget https://github.com/armbian/firmware/raw/master/ap6212/nvram.txt -O $ROOTFS/opt/etc/firmware/nvram_AP6212.txt
+wget -nc https://github.com/armbian/firmware/raw/master/ap6212/bcm43438a1.hcd -O $ROOTFS/opt/etc/firmware/BCM43438A1.hcd
+wget -nc https://github.com/armbian/firmware/raw/master/ap6212/fw_bcm43438a1.bin -O $ROOTFS/opt/etc/firmware/fw_bcm43438a1.bin
+wget -nc https://github.com/armbian/firmware/raw/master/ap6212/fw_bcm43438a1_mfg.bin -O $ROOTFS/opt/etc/firmware/fw_bcm43438a1_mfg.bin
+wget -nc https://github.com/armbian/firmware/raw/master/ap6212/nvram.txt -O $ROOTFS/opt/etc/firmware/nvram_AP6212.txt
 
-
-if [ -e ./initial_settings.sh ]; then
-    cp initial_settings.sh $ROOTFS/tmp/
-    export HOME=/root
-    chroot $ROOTFS /tmp/initial_settings.sh
-fi
+exit
