@@ -18,7 +18,6 @@ ENABLE_X=0
 #VARIANT=buildd
 VARIANT=minbase
 #SERVER=http://ftp.debian.org/debian/
-#SERVER=http://ftp.jp.debian.org/debian/
 SERVER=https://mirror.lzu.edu.cn/debian/
 
 ROOTFS=rootfs
@@ -35,8 +34,9 @@ PACKAGE=${PACKAGE},bluetooth,wireless-tools,wpasupplicant
 PACKAGE=${PACKAGE},console-setup,sudo,psmisc,locales,keyboard-configuration,dialog,parted,less,lv,unar
 # console tools extra
 #PACKAGE=${PACKAGE},mc,gpm
-# japanese console
-PACKAGE=${PACKAGE},fbterm,fbi,screen,tmux,fonts-ricty-diminished,fonts-noto-cjk-extra
+# chinese console
+PACKAGE=${PACKAGE},fbterm,fbi,screen,tmux,fonts-ricty-diminished
+fcitx,fcitx-pinyin
 # FEP
 PACKAGE=${PACKAGE},uim-mozc,uim-fep
 # etc
@@ -44,12 +44,12 @@ PACKAGE=${PACKAGE},alsa-utils,man-db
 # develop
 PACKAGE=${PACKAGE},python3
 # editor
-PACKAGE=${PACKAGE},vim-tiny,emacs-nox
+PACKAGE=${PACKAGE},vim
 
 # X version option
 if [ ${ENABLE_X} -eq 1 ]; then
     PACKAGE=${PACKAGE},xorg
-    PACKAGE=${PACKAGE},vim-gtk,emacs,midori
+    PACKAGE=${PACKAGE},vim-gtk,midori
     # XFCE4
     PACKAGE=${PACKAGE},xfce4,dbus-user-session,dbus-x11,gvfs,xfce4-power-manager,xfce4-terminal
     # BT audio
@@ -132,5 +132,3 @@ wget -nc https://github.com/armbian/firmware/raw/master/ap6212/bcm43438a1.hcd -O
 wget -nc https://github.com/armbian/firmware/raw/master/ap6212/fw_bcm43438a1.bin -O $ROOTFS/opt/etc/firmware/fw_bcm43438a1.bin
 wget -nc https://github.com/armbian/firmware/raw/master/ap6212/fw_bcm43438a1_mfg.bin -O $ROOTFS/opt/etc/firmware/fw_bcm43438a1_mfg.bin
 wget -nc https://github.com/armbian/firmware/raw/master/ap6212/nvram.txt -O $ROOTFS/opt/etc/firmware/nvram_AP6212.txt
-
-exit

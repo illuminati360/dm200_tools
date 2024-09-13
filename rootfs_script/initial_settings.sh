@@ -1,22 +1,19 @@
 #!/bin/sh
 export PATH=$PATH:/usr/sbin/
 
-# japanese settings
+# english+chinese settings
 chmod u+s /usr/bin/fbterm
-sed -i -e "s/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/" /etc/locale.gen
-LANG="ja_JP.UTF-8"
+sed -i -e "s/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /etc/locale.gen
+LANG="en_US.UTF-8"
 locale-gen
 update-locale
 rm /etc/localtime
-ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # keyboard layout
-echo 'XKBMODEL="jp106"' > /etc/default/keyboard
-echo 'XKBLAYOUT="jp"' >> /etc/default/keyboard
-echo '#XKBOPTIONS="ctrl:nocaps"' >> /etc/default/keyboard
-#echo 'XKBMODEL="pc105"' > /etc/default/keyboard
-#echo 'XKBLAYOUT="us"' >> /etc/default/keyboard
-#echo 'XKBOPTIONS="ctrl:nocaps"' >> /etc/default/keyboard
+echo 'XKBMODEL="pc105"' > /etc/default/keyboard
+echo 'XKBLAYOUT="us"' >> /etc/default/keyboard
+echo 'XKBOPTIONS="ctrl:nocaps"' >> /etc/default/keyboard
 
 # mali module
 echo drm >> /etc/modules
@@ -92,9 +89,9 @@ echo "/dev/mmcblk0p27 none            none    none                              
 
 
 # hostname
-echo "pomera" > /etc/hostname
+echo "illuminati" > /etc/hostname
 echo "127.0.0.1 localhost" > /etc/hosts
-echo "127.0.1.1 pomera" >> /etc/hosts
+echo "127.0.1.1 illuminati" >> /etc/hosts
 
 
 # stop bluetoothd auto start
@@ -102,52 +99,52 @@ echo "127.0.1.1 pomera" >> /etc/hosts
 
 
 # add /opt/bin to PATH to skel
-echo "\nPATH=/opt/bin:\$PATH" >> /root/.bashrc
-echo "\nPATH=/opt/bin:\$PATH" >> /etc/skel/.bashrc
+echo "PATH=/opt/bin:\$PATH" >> /root/.bashrc
+echo "PATH=/opt/bin:\$PATH" >> /etc/skel/.bashrc
 
 #echo "set root password"
-#passwd
+passwd
 
 # lock root account
-passwd -l root
+#passwd -l root
 
 # add user
-useradd pomera -d /home/pomera -m -k /etc/skel -s /bin/bash -G video,sudo,lp
-echo "set pomera passwd"
-passwd pomera
+useradd illuminati -d /home/illuminati -m -k /etc/skel -s /bin/bash -G video,sudo,lp
+echo "set illuminati passwd"
+passwd illuminati
 
 
 ## .xinitrc
-#cat << \EOT >> /home/pomera/.xinitrc
-#export LANG=ja_JP.UTF-8
+#cat << \EOT >> /home/illuminati/.xinitrc
+#export LANG=en_US.UTF-8
 #export GTK_IM_MODULE=ibus
 #export XMODIFIERS=@im=ibus
 #export QT_IM_MODULE=ibus
 #
 #EOT
-##cat << \EOT >> /home/pomera/.xinitrc
-##export LANG=ja_JP.UTF-8
+##cat << \EOT >> /home/illuminati/.xinitrc
+##export LANG=en_US.UTF-8
 ##export GTK_IM_MODULE=fcitx
 ##export XMODIFIERS=@im=fcitx
 ##export QT_IM_MODULE=fcitx
 ##
 ##EOT
 #
-##echo "ibus-daemon -drx&" >> /home/pomera/.xinitrc
-#echo "exec startxfce4" >> /home/pomera/.xinitrc
-#chown pomera:pomera /home/pomera/.xinitrc
+##echo "ibus-daemon -drx&" >> /home/illuminati/.xinitrc
+#echo "exec startxfce4" >> /home/illuminati/.xinitrc
+#chown illuminati:illuminati /home/illuminati/.xinitrc
 
 # add auto fbterm setting
-cat << \EOT >> /home/pomera/.bashrc
+cat << EOT >> /home/illuminati/.bashrc
 
-alias fbterm="LANG=ja_JP.UTF-8 fbterm -- uim-fep"
+alias fbterm="LANG=en_US.UTF-8 fbterm -- uim-fep"
 
 # If you want to auto launch fbturm at login time, uncomment here.
-#case "$TERM" in
-#  linux*)
-#    LANG=ja_JP.UTF-8 fbterm -- uim-fep
-#	;;
-#esac
+case "$TERM" in
+  linux*)
+  LANG=en_US.UTF-8 fbterm -- uim-fep
+	;;
+esac
 EOT
 
 # network config

@@ -77,8 +77,14 @@ sudo parted -s /dev/loop0 print
 # 3      5372MB  5475MB  103MB   primary  linux-swap(v1)  swap
 ```
 - Usage:
+```
 sudo ./make_dm200_rootfs.sh
 sudo ./populate_rootfs.sh
+# Warning: don't run initial_settings.sh directly!!!!
+```
 
 ### make_img
 - Usage
+```
+sudo ./make_img.sh
+```

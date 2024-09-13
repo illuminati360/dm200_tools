@@ -8,4 +8,4 @@ fi
 cp initial_settings.sh $ROOTFS/tmp/
 export HOME=/root
 cp $(which qemu-arm-static) $ROOTFS/bin/
-chroot $ROOTFS qemu-arm-static /tmp/initial_settings.sh
+chroot $ROOTFS qemu-arm-static /bin/bash /tmp/initial_settings.sh
