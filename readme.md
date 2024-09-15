@@ -88,3 +88,6 @@ sudo ./populate_rootfs.sh
 ```
 sudo ./make_img.sh
 ```
+
+### post install
+- modify the ~/.config/fcitx/profile and enable pinyin

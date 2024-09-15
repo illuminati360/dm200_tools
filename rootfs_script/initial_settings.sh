@@ -138,14 +138,7 @@ passwd illuminati
 # add auto fbterm setting
 cat << EOT >> /home/illuminati/.bashrc
 
-alias fbterm="LANG=en_US.UTF-8 fbterm -- uim-fep"
-
-# If you want to auto launch fbturm at login time, uncomment here.
-case "$TERM" in
-  linux*)
-  LANG=en_US.UTF-8 fbterm -- uim-fep
-	;;
-esac
+alias note="LANG=cn_ZH.UTF-8 fcitx-fbterm-helper"
 EOT
 
 # network config
