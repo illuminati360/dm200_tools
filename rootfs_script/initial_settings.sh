@@ -138,7 +138,7 @@ passwd illuminati
 # add auto fbterm setting
 cat << EOT >> /home/illuminati/.bashrc
 
-alias note="LANG=cn_ZH.UTF-8 fcitx-fbterm-helper"
+alias note="LANG=zh_CN.UTF-8 fcitx-fbterm-helper"
 EOT
 
 # network config
