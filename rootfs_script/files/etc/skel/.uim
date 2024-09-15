@@ -1,3 +1,0 @@
-(define default-im-name 'mozc)
-(define-key generic-on-key? '("<Control> " "zenkaku-hankaku"))
-(define-key generic-off-key? '("<Control> " "zenkaku-hankaku"))

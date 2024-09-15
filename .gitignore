@@ -7,3 +7,4 @@ mkfs.vfat
 mkswap
 initramfs/files/dev
 mytest.img
+*.img

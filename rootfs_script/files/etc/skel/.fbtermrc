@@ -6,8 +6,8 @@
 
 # font family names/pixelsize used by fbterm, multiple font family names must be seperated by ','
 # and using a fixed width font as the first is strongly recommended
-font-names=Ricty Diminished
-font-size=18
+font-names=mono
+font-size=25
 
 # force font width (and/or height), usually for non-fixed width fonts
 # legal value format: n (fw_new = n), +n (fw_new = fw_old + n), -n (fw_new = fw_old - n)
@@ -39,7 +39,7 @@ word-chars=._-
 screen-rotate=0
 
 # specify the favorite input method program to run
-input-method=
+input-method=fcitx5-fbterm
 
 # treat ambiguous width characters as wide
-ambiguous-wide=yes
+#ambiguous-wide=yes

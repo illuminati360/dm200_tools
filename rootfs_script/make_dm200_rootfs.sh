@@ -12,8 +12,6 @@
 #
 
 VERSION=bullseye
-#ENABLE_X=1
-ENABLE_X=0
 
 #VARIANT=buildd
 VARIANT=minbase
@@ -35,10 +33,14 @@ PACKAGE=${PACKAGE},console-setup,sudo,psmisc,locales,keyboard-configuration,dial
 # console tools extra
 #PACKAGE=${PACKAGE},mc,gpm
 # chinese console
-PACKAGE=${PACKAGE},fbterm,fbi,screen,tmux,fonts-ricty-diminished
-fcitx,fcitx-pinyin
-# FEP
-PACKAGE=${PACKAGE},uim-mozc,uim-fep
+PACKAGE=${PACKAGE},dbus-user-session
+PACKAGE=${PACKAGE},fbterm,fbi,screen,tmux
+# fcitx
+PACKAGE=${PACKAGE},fcitx,fcitx-googlepinyin,fcitx-frontend-fbterm,fcitx-module-dbus,fcitx-fbterm-helper
+# font
+PACKAGE=${PACKAGE},fonts-noto-cjk
+# git
+PACKAGE=${PACKAGE},git
 # etc
 PACKAGE=${PACKAGE},alsa-utils,man-db
 # develop
@@ -46,26 +48,7 @@ PACKAGE=${PACKAGE},python3
 # editor
 PACKAGE=${PACKAGE},vim
 
-# X version option
-if [ ${ENABLE_X} -eq 1 ]; then
-    PACKAGE=${PACKAGE},xorg
-    PACKAGE=${PACKAGE},vim-gtk,midori
-    # XFCE4
-    PACKAGE=${PACKAGE},xfce4,dbus-user-session,dbus-x11,gvfs,xfce4-power-manager,xfce4-terminal
-    # BT audio
-    #PACKAGE=${PACKAGE},pulseaudio-module-bluetooth
-    # FEP X
-    PACKAGE=${PACKAGE},ibus-mozc
-    #PACKAGE=${PACKAGE},fcitx-mozc,fcitx-config-gtk,mozc-utils-gui
-fi
-
-
-##########################
-# ubuntu 16.04
-#VERSION=xenial
-#COMPONENTS=main,restricted,universe,multiverse
-#PACKAGE=vim,bluez,net-tools,wireless-tools,console-setup,sudo,isc-dhcp-client,wpasupplicant,psmisc,locales,fbterm,uim-fep,tmux,emacs,fonts-ricty-diminished,fonts-migmix,uim-anthy,fbterm,fluxbox,xorg,xfce4,libcap2-bin
-#SERVER=http://jp.archive.ubuntu.com/ubuntu-ports/
+PACKAGE=${PACKAGE},xorg,zathura
 
 
 ###########
@@ -95,7 +78,7 @@ COPY_FILES=files
 
 if [ -e $COPY_FILES ]; then
     cp -r $COPY_FILES/etc $ROOTFS/
-    cp -r $COPY_FILES/lib $ROOTFS/
+    #cp -r $COPY_FILES/lib $ROOTFS/
     cp -r $COPY_FILES/lib/modules $ROOTFS/lib/
     cp -r $COPY_FILES/opt $ROOTFS/
 

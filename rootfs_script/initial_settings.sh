@@ -4,6 +4,7 @@ export PATH=$PATH:/usr/sbin/
 # english+chinese settings
 chmod u+s /usr/bin/fbterm
 sed -i -e "s/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /etc/locale.gen
+sed -i -e "s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/" /etc/locale.gen
 LANG="en_US.UTF-8"
 locale-gen
 update-locale
