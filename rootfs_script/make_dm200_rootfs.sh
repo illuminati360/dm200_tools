@@ -11,12 +11,14 @@
 # settings
 #
 
-VERSION=bullseye
+#VERSION=bullseye
+VERSION=bookworm
 
 #VARIANT=buildd
 VARIANT=minbase
 #SERVER=http://ftp.debian.org/debian/
-SERVER=https://mirror.lzu.edu.cn/debian/
+#SERVER=https://mirror.lzu.edu.cn/debian/
+SERVER=http://ftp.cn.debian.org/debian/
 
 ROOTFS=rootfs
 CACHE_DIR=`pwd`/cache/$VERSION
@@ -36,7 +38,7 @@ PACKAGE=${PACKAGE},console-setup,sudo,psmisc,locales,keyboard-configuration,dial
 PACKAGE=${PACKAGE},dbus-user-session
 PACKAGE=${PACKAGE},fbterm,fbi,screen,tmux
 # fcitx
-PACKAGE=${PACKAGE},fcitx,fcitx-googlepinyin,fcitx-frontend-fbterm,fcitx-module-dbus,fcitx-fbterm-helper
+PACKAGE=${PACKAGE},fcitx,fcitx-googlepinyin,fcitx-frontend-fbterm,fcitx-module-dbus
 # font
 PACKAGE=${PACKAGE},fonts-noto-cjk
 # git
@@ -48,7 +50,7 @@ PACKAGE=${PACKAGE},python3
 # editor
 PACKAGE=${PACKAGE},vim
 
-PACKAGE=${PACKAGE},xorg,zathura
+PACKAGE=${PACKAGE},xorg
 
 
 ###########

@@ -1,4 +1,5 @@
 #!/bin/sh
+USER_NAME=pomera
 export PATH=$PATH:/usr/sbin/
 
 # english+chinese settings
@@ -31,6 +32,8 @@ if [ ${DISTRIBUTION} = "Debian" ]; then
     CODE_NAME=buster
   elif [ ${VERSION} = "11" ]; then
     CODE_NAME=bullseye
+  elif [ ${VERSION} = "12" ]; then
+    CODE_NAME=bookworm
   fi
     echo "deb http://deb.debian.org/debian/ $CODE_NAME main contrib non-free" > /etc/apt/sources.list
     echo "deb http://security.debian.org/debian-security $CODE_NAME-security main contrib non-free" >> /etc/apt/sources.list
@@ -90,9 +93,9 @@ echo "/dev/mmcblk0p27 none            none    none                              
 
 
 # hostname
-echo "illuminati" > /etc/hostname
+echo "$USER_NAME" > /etc/hostname
 echo "127.0.0.1 localhost" > /etc/hosts
-echo "127.0.1.1 illuminati" >> /etc/hosts
+echo "127.0.1.1 $USER_NAME" >> /etc/hosts
 
 
 # stop bluetoothd auto start
@@ -110,20 +113,20 @@ passwd
 #passwd -l root
 
 # add user
-useradd illuminati -d /home/illuminati -m -k /etc/skel -s /bin/bash -G video,sudo,lp
-echo "set illuminati passwd"
-passwd illuminati
+useradd $USER_NAME -d /home/$USER_NAME -m -k /etc/skel -s /bin/bash -G video,sudo,lp
+echo "set $USER_NAME passwd"
+passwd $USER_NAME
 
 
 ## .xinitrc
-#cat << \EOT >> /home/illuminati/.xinitrc
+#cat << \EOT >> /home/$USER_NAME/.xinitrc
 #export LANG=en_US.UTF-8
 #export GTK_IM_MODULE=ibus
 #export XMODIFIERS=@im=ibus
 #export QT_IM_MODULE=ibus
 #
 #EOT
-##cat << \EOT >> /home/illuminati/.xinitrc
+##cat << \EOT >> /home/$USER_NAME/.xinitrc
 ##export LANG=en_US.UTF-8
 ##export GTK_IM_MODULE=fcitx
 ##export XMODIFIERS=@im=fcitx
@@ -131,12 +134,12 @@ passwd illuminati
 ##
 ##EOT
 #
-##echo "ibus-daemon -drx&" >> /home/illuminati/.xinitrc
-#echo "exec startxfce4" >> /home/illuminati/.xinitrc
-#chown illuminati:illuminati /home/illuminati/.xinitrc
+##echo "ibus-daemon -drx&" >> /home/$USER_NAME/.xinitrc
+#echo "exec startxfce4" >> /home/$USER_NAME/.xinitrc
+#chown $USER_NAME:$USER_NAME /home/$USER_NAME/.xinitrc
 
 # add auto fbterm setting
-cat << EOT >> /home/illuminati/.bashrc
+cat << EOT >> /home/$USER_NAME/.bashrc
 
 alias note="LANG=zh_CN.UTF-8 fcitx-fbterm-helper"
 EOT
