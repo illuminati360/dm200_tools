@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TARGET_IMG=mytest.img
-dd if=/dev/zero of=$TARGET_IMG seek=10692607 count=0
+dd if=/dev/zero of=$TARGET_IMG seek=12582912 count=0
 
 CHROOT_DIR=initramfs/files
 IMG_PATH=$CHROOT_DIR/$TARGET_IMG
@@ -12,8 +12,8 @@ mount --rbind /dev $CHROOT_DIR/dev/
 # mount --rbind /dev $CHROOT_DIR/dev/
 chroot $CHROOT_DIR bin/qemu-arm-static /bin/parted -s -a optimal $TARGET_IMG -- mklabel msdos
 chroot $CHROOT_DIR bin/qemu-arm-static /bin/parted -s -a optimal $TARGET_IMG -- mkpart primary fat32 1 2149
-chroot $CHROOT_DIR bin/qemu-arm-static /bin/parted -s -a optimal $TARGET_IMG -- mkpart primary ext4 2150 5371
-chroot $CHROOT_DIR bin/qemu-arm-static /bin/parted -s -a optimal $TARGET_IMG -- mkpart primary linux-swap 5372 -1
+chroot $CHROOT_DIR bin/qemu-arm-static /bin/parted -s -a optimal $TARGET_IMG -- mkpart primary ext4 2150 6395
+chroot $CHROOT_DIR bin/qemu-arm-static /bin/parted -s -a optimal $TARGET_IMG -- mkpart primary linux-swap 6396 -1
 
 losetup -P /dev/loop0 $IMG_PATH
 

@@ -150,8 +150,11 @@ systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 systemctl start systemd-resolved
 #resolv.conf
-rm /etc/resolv.conf
-ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+cat << EOF > /etc/resolv.conf
+nameserver 8.8.8.8
+EOF
+#rm /etc/resolv.conf
+#ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 #interface
 #mkdir /etc/systemd/network
 cat << EOT > /etc/systemd/network/20-dhcp.network

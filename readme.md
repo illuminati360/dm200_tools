@@ -91,3 +91,10 @@ sudo ./make_img.sh
 
 ### post install
 - modify the ~/.config/fcitx/profile and enable pinyin
+
+
+### zathura
+- use install_zathura.sh to install zathura with the mupdf backend
+
+
+### German input

@@ -24,6 +24,8 @@ ROOTFS=rootfs
 CACHE_DIR=`pwd`/cache/$VERSION
 COMPONENTS=main,contrib,non-free
 
+ZATHURA=1
+
 # base
 PACKAGE=apt-transport-https,apt-utils,ca-certificates,debian-archive-keyring,systemd,dbus,systemd-sysv,vim-tiny,unzip,bzip2,libcap2-bin
 # network
@@ -49,8 +51,14 @@ PACKAGE=${PACKAGE},alsa-utils,man-db
 PACKAGE=${PACKAGE},python3
 # editor
 PACKAGE=${PACKAGE},vim
-
+# xorg
 PACKAGE=${PACKAGE},xorg
+
+# X version option
+if [ ${ZATHURA} -eq 1 ]; then
+    # zathura
+    PACKAGE=${PACKAGE},build-essential,python3-pip,xz-utils,pipx,libglib2.0-dev,cmake,libgtk-3-dev,ninja-build,libjson-glib-dev,libmagic-dev,libsqlite3-dev,gettext,xorg-dev,libglfw3-dev,libgl1-mesa-dev,libglu1-mesa-dev,libmujs-dev,libopenjp2-7-dev,libjbig2dec0-dev,libgumbo-dev,freeglut3-dev,libjpeg-dev
+fi
 
 
 ###########
@@ -117,3 +125,5 @@ wget -nc https://github.com/armbian/firmware/raw/master/ap6212/bcm43438a1.hcd -O
 wget -nc https://github.com/armbian/firmware/raw/master/ap6212/fw_bcm43438a1.bin -O $ROOTFS/opt/etc/firmware/fw_bcm43438a1.bin
 wget -nc https://github.com/armbian/firmware/raw/master/ap6212/fw_bcm43438a1_mfg.bin -O $ROOTFS/opt/etc/firmware/fw_bcm43438a1_mfg.bin
 wget -nc https://github.com/armbian/firmware/raw/master/ap6212/nvram.txt -O $ROOTFS/opt/etc/firmware/nvram_AP6212.txt
+
+rm $ROOTFS/etc/resolv.conf
