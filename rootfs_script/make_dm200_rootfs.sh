@@ -57,7 +57,7 @@ PACKAGE=${PACKAGE},xorg
 # X version option
 if [ ${ZATHURA} -eq 1 ]; then
     # zathura
-    PACKAGE=${PACKAGE},build-essential,python3-pip,xz-utils,pipx,libglib2.0-dev,cmake,libgtk-3-dev,ninja-build,libjson-glib-dev,libmagic-dev,libsqlite3-dev,gettext,xorg-dev,libglfw3-dev,libgl1-mesa-dev,libglu1-mesa-dev,libmujs-dev,libopenjp2-7-dev,libjbig2dec0-dev,libgumbo-dev,freeglut3-dev,libjpeg-dev
+    PACKAGE=${PACKAGE},build-essential,python3-pip,xz-utils,pipx,libglib2.0-dev,cmake,libgtk-3-dev,ninja-build,libjson-glib-dev,libmagic-dev,libsqlite3-dev,gettext,xorg-dev,libglfw3-dev,libgl1-mesa-dev,libglu1-mesa-dev,libmujs-dev,libopenjp2-7-dev,libjbig2dec0-dev,libgumbo-dev,freeglut3-dev
 fi
 
 

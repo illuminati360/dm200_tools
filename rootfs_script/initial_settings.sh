@@ -142,6 +142,7 @@ passwd $USER_NAME
 cat << EOT >> /home/$USER_NAME/.bashrc
 
 alias note="LANG=zh_CN.UTF-8 fcitx-fbterm-helper"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/arm-linux-gnueabihf
 EOT
 
 # network config

@@ -30,7 +30,7 @@ cd ../../
 wget https://mupdf.com/downloads/archive/mupdf-1.24.9-source.tar.gz
 tar zxvf mupdf-1.24.9-source.tar.gz
 cd mupdf-1.24.9-source
-make shared=no USE_SYSTEM_LIBS=no XCFLAGS=-fPIC prefix=/usr/local build=release install
+make shared=no USE_SYSTEM_LIBS=no USE_SYSTEM_LIBJPEG=yes XCFLAGS=-fPIC prefix=/usr/local build=release install
 
 # zathura-mupdf
 wget https://pwmt.org/projects/zathura-pdf-mupdf/download/zathura-pdf-mupdf-0.4.4.tar.xz
