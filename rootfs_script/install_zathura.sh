@@ -42,12 +42,6 @@ ninja
 ninja install
 cd ../../
 
-# config zathura to use fullscreen
-mkdir -p /home/$USER_NAME/.config/zathura
-cat << EOF > /home/$USER_NAME/.config/zathura/zathurarc
-set window-width 1024
-EOF
-
 rm /tmp/install_zathura.sh
 rm -r /tmp/girara*
 rm -r /tmp/mupdf*

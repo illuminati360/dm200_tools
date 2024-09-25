@@ -98,3 +98,17 @@ sudo ./make_img.sh
 
 
 ### German input
+- loadkeys custom.keymap
+```
+keycode 93  =   AltGr
+        altgr   keycode 30  =   adiaeresis
+shift   altgr   keycode 30  =   Adiaeresis
+
+        altgr   keycode 24  =   odiaeresis
+shift   altgr   keycode 24  =   Odiaeresis
+
+        altgr   keycode 22  =   udiaeresis
+shift   altgr   keycode 22  =   Udiaeresis
+
+        altgr   keycode 31  =   ssharp
+```
